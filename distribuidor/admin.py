@@ -1,3 +1,8 @@
 from django.contrib import admin
+from distribuidor.models import Distribuidor
 
-# Register your models here.
+
+@admin.register(Distribuidor)
+class DistribuidorAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'ruc')
+    search_fields = ('codigo', 'nombre')

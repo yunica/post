@@ -1,3 +1,13 @@
 from django.contrib import admin
+from compras.models import DetalleCompra, Cabecera
 
-# Register your models here.
+
+class medicamento_compraInline(admin.TabularInline):
+    model = DetalleCompra
+
+
+class compraAdmin(admin.ModelAdmin):
+    inlines = (medicamento_compraInline,)
+
+
+admin.site.register(Cabecera, compraAdmin)
